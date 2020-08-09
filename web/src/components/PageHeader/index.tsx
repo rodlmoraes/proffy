@@ -7,9 +7,10 @@ import './styles.css'
 
 type PageHeaderProps = {
   title: string
+  description?: string
 }
 
-export default function PageHeader({ children, title }: PropsWithChildren<PageHeaderProps>) {
+export default function PageHeader({ children, title, description }: PropsWithChildren<PageHeaderProps>) {
   return (
     <header className="page-header">
       <div className="top-bar-container">
@@ -21,6 +22,8 @@ export default function PageHeader({ children, title }: PropsWithChildren<PageHe
 
       <div className="header-content">
         <strong>{title}</strong>
+        {description && <p>{description}</p>}
+
         {children}
       </div>
     </header>
