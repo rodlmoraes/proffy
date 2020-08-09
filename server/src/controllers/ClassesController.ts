@@ -70,7 +70,7 @@ const create = async (req: Request, res: Response) => {
 
     await trx.commit()
 
-    return res.send(201)
+    return res.status(201)
   } catch (err) {
     await trx.rollback()
 
