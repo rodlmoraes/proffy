@@ -2,12 +2,15 @@
   "env": {
     "browser": true,
     "node": true,
-    "es2020": true
+    "es2020": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb",
-    "prettier",
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/standard",
     "prettier/react"
   ],
   "parser": "@typescript-eslint/parser",
@@ -18,11 +21,16 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
     "jsx-quotes": ["error", "prefer-single"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
