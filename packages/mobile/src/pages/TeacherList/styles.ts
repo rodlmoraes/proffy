@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F0F7',
   },
   teacherList: {
-    marginTop: -40,
+    marginTop: -36,
   },
   searchForm: {
-    marginBottom: 8,
+    marginBottom: 18,
   },
   label: {
     color: '#D4C2FF',
@@ -30,6 +30,20 @@ const styles = StyleSheet.create({
   },
   inputBlock: {
     width: '47%'
+  },
+  submitButton: {
+    marginTop: 10,
+    backgroundColor: '#04D361',
+    height: 56,
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  submitButtonText: {
+    color: '#FFF',
+    fontFamily: 'Archivo_700Bold',
+    fontSize: 16,
   }
 })
 

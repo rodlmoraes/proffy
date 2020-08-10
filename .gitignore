@@ -1,25 +1,26 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+node_modules
 */node_modules
 /.pnp
 .pnp.js
 
 #expo
-*/.expo/*
-*/*.jks
-*/*.p8
-*/*.p12
-*/*.key
-*/*.mobileprovision
-*/*.orig.*
-*/web-build/
+packages/*/.expo/*
+packages/*/*.jks
+packages/*/*.p8
+packages/*/*.p12
+packages/*/*.key
+packages/*/*.mobileprovision
+packages/*/*.orig.*
+packages/*/web-build/
 
 # testing
-/coverage
+packages/coverage
 
 # production
-/build
+packages/build
 
 # misc
 .DS_Store

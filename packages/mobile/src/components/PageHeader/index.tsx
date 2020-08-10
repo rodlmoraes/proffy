@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, ReactNode } from 'react'
 import { View, Image, Text } from "react-native";
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
@@ -9,10 +9,11 @@ import styles from './styles'
 
 
 type PageHeaderProps = {
-  title: string
+  title: string,
+  subtitle?: ReactNode
 }
 
-export default function PageHeader({ title, children }: PropsWithChildren<PageHeaderProps>) {
+export default function PageHeader({ title, subtitle, children }: PropsWithChildren<PageHeaderProps>) {
   const { navigate } = useNavigation()
   const goBack = () => {
     navigate('Landing')
@@ -26,7 +27,11 @@ export default function PageHeader({ title, children }: PropsWithChildren<PageHe
         </BorderlessButton>
         <Image source={logoIcon} resizeMode='contain' />
       </View>
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>{title}</Text>
+        {subtitle}
+      </View>
+
 
       {children}
     </View>
