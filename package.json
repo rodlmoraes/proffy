@@ -14,10 +14,15 @@
       "packages/shared/*"
     ]
   },
+  "dependencies": {
+    "@proffy/axios": "*"
+  },
   "devDependencies": {
-    "@proffy/eslint-config": "*",
-    "@types/jest": "^26.0.9",
-    "jest": "^26.2.2",
-    "ts-jest": "^26.1.4"
+    "@proffy/dotenv": "*",
+    "@proffy/eslint": "*",
+    "@types/jest": "^24.0.9",
+    "jest": "^24.9.0",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
   }
 }

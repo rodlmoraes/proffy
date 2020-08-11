@@ -1,39 +1,31 @@
 import React, { useState } from 'react'
-import { View, Image, Text, Linking } from "react-native";
-import { RectButton } from 'react-native-gesture-handler';
+import { View, Image, Text, Linking } from 'react-native'
+import { RectButton } from 'react-native-gesture-handler'
 import AsyncStorage from '@react-native-community/async-storage'
+import api from '@proffy/axios'
 
-import api from '../../services/api';
 import heartOutlinedIcon from '../../assets/images/icons/heart-outline.png'
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png'
 import whatsappIcon from '../../assets/images/icons/whatsapp.png'
-import styles from './styles';
+import styles from './styles'
 
 export type Teacher = {
-  avatar: string,
-  bio: string,
-  price: number,
-  name: string,
-  subject: string,
-  phone: string,
-  user_id: string,
+  avatar: string
+  bio: string
+  price: number
+  name: string
+  subject: string
+  phone: string
+  user_id: string
 }
 
 type TeacherItemProps = {
-  teacher: Teacher,
+  teacher: Teacher
   favorited: boolean
 }
 
 export default function TeacherItem({ teacher, favorited }: TeacherItemProps) {
-  const {
-    avatar,
-    bio,
-    price,
-    name,
-    subject,
-    phone,
-    user_id,
-  } = teacher
+  const { avatar, bio, price, name, subject, phone, user_id } = teacher
 
   const [isFavorited, setIsFavorited] = useState(favorited)
 
@@ -57,10 +49,7 @@ export default function TeacherItem({ teacher, favorited }: TeacherItemProps) {
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
-        <Image
-          style={styles.avatar}
-          source={{ uri: avatar }}
-        />
+        <Image style={styles.avatar} source={{ uri: avatar }} />
 
         <View style={styles.profileInfo}>
           <Text style={styles.name}>{name}</Text>
@@ -68,9 +57,7 @@ export default function TeacherItem({ teacher, favorited }: TeacherItemProps) {
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        {bio}
-      </Text>
+      <Text style={styles.bio}>{bio}</Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
@@ -81,18 +68,19 @@ export default function TeacherItem({ teacher, favorited }: TeacherItemProps) {
         <View style={styles.buttonsContainer}>
           <RectButton
             onPress={toggleFavorited}
-            style={[
-              styles.favoriteButton,
-              isFavorited && styles.favorited
-            ]}
+            style={[styles.favoriteButton, isFavorited && styles.favorited]}
           >
-            {isFavorited
-              ? <Image source={unfavoriteIcon} />
-              : <Image source={heartOutlinedIcon} />
-            }
+            {isFavorited ? (
+              <Image source={unfavoriteIcon} />
+            ) : (
+              <Image source={heartOutlinedIcon} />
+            )}
           </RectButton>
 
-          <RectButton onPress={() => sendWhatsapp(phone, user_id)} style={styles.contactButton}>
+          <RectButton
+            onPress={() => sendWhatsapp(phone, user_id)}
+            style={styles.contactButton}
+          >
             <Image source={whatsappIcon} />
             <Text style={styles.contactButtonText}>Entrar em contato</Text>
           </RectButton>
@@ -102,11 +90,11 @@ export default function TeacherItem({ teacher, favorited }: TeacherItemProps) {
   )
 }
 
+const createConnection = (user_id: string) => {
+  api.post('connections', { user_id })
+}
+
 const sendWhatsapp = (phone: string, user_id: string) => {
   createConnection(user_id)
   Linking.openURL(`whatsapp://send?phone=${phone}`)
-}
-
-const createConnection = (user_id: string) => {
-  api.post('connections', { user_id })
 }

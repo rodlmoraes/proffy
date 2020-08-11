@@ -1,36 +1,28 @@
 import React from 'react'
+import api from '@proffy/axios'
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
 import './styles.css'
-import api from '../../services/api'
 
 type TeacherItemProps = {
   teacher: {
-    avatar: string,
-    bio: string,
-    price: number,
-    name: string,
-    subject: string,
-    phone: string,
-    user_id: string,
+    avatar: string
+    bio: string
+    price: number
+    name: string
+    subject: string
+    phone: string
+    user_id: string
   }
 }
 
 export default function TeacherItem({ teacher }: TeacherItemProps) {
-  const {
-    avatar,
-    bio,
-    price,
-    name,
-    subject,
-    phone,
-    user_id
-  } = teacher
+  const { avatar, bio, price, name, subject, phone, user_id } = teacher
 
   return (
-    <article className="techer-item">
+    <article className='techer-item'>
       <header>
-        <img src={avatar} alt="Avatar" />
+        <img src={avatar} alt='Avatar' />
         <div>
           <strong>{name}</strong>
           <span>{subject}</span>
@@ -43,8 +35,13 @@ export default function TeacherItem({ teacher }: TeacherItemProps) {
           Preço/Hora
           <strong>R$ {price}</strong>
         </p>
-        <a rel="noopener noreferrer" target="_blank" onClick={() => createConnection(user_id)} href={`https://wa.me/${phone}`}>
-          <img src={whatsappIcon} alt="Whatsapp" />
+        <a
+          rel='noopener noreferrer'
+          target='_blank'
+          onClick={() => createConnection(user_id)}
+          href={`https://wa.me/${phone}`}
+        >
+          <img src={whatsappIcon} alt='Whatsapp' />
           Entrar em contato
         </a>
       </footer>

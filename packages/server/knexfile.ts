@@ -1,52 +1,38 @@
 import path from 'path'
+import { dbName, dbUser, dbPassword } from '@proffy/dotenv'
 
 const dbConfig = {
   development: {
     client: 'pg',
     connection: {
-      database: 'proffy',
-      user: 'rodrigo',
-      password: '060400dig'
+      database: dbName,
+      user: dbUser,
+      password: dbPassword,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      directory: path.resolve(__dirname, 'src', 'database', 'migrations')
-    }
-  },
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      directory: path.resolve(__dirname, 'src', 'database', 'migrations'),
     },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
   },
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password'
+      database: dbName,
+      user: dbUser,
+      password: dbPassword,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-};
+      tableName: 'knex_migrations',
+    },
+  },
+}
 
 module.exports = dbConfig
 export default dbConfig

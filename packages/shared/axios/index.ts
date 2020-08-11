@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { apiUrl } from '@proffy/dotenv'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: apiUrl,
 })
 
 export default api

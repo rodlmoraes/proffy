@@ -1,3 +1,3 @@
-const config = require('@proffy/eslint-config')
+const config = require('@proffy/eslint')
 
 module.exports = config
