@@ -23,6 +23,7 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "comma-dangle": ["error", "always-multiline"],
     "prettier/prettier": "error",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",

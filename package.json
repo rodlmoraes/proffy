@@ -5,9 +5,13 @@
   "private": true,
   "license": "MIT",
   "author": "Rodrigo Moraes",
+  "scripts": {
+    "test": "jest"
+  },
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/shared/*"
     ]
   },
   "devDependencies": {
