@@ -23,11 +23,15 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "arrow-parens": ["error", "as-needed"],
     "comma-dangle": ["error", "always-multiline"],
     "import/prefer-default-export": "off",
+    "indent": ["error", 2],
     "jsx-quotes": ["error", "prefer-single"],
-    "prettier/prettier": "error",
+    "quotes": ["error", "single"],
+    "max-len": ["error", { "code": 110 }],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "semi": ["error", "never"],
     "space-before-function-paren": [
       "error",
       {
